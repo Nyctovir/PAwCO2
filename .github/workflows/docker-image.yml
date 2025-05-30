@@ -71,12 +71,12 @@ jobs:
         run: docker pull ghcr.io/${{ github.repository }}:latest
 
       - name: Scan Docker Image for CVEs
-        uses: aquasecurity/trivy-action@v0.11.2
+        uses: aquasecurity/trivy-action@main
         with:
           image-ref: ghcr.io/${{ github.repository }}:latest
           severity: CRITICAL,HIGH
           ignore-unfixed: true
-
+          
       - name: Check scan results
         run: |
           if grep -q "CRITICAL\|HIGH" trivy-results.txt; then

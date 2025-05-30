@@ -68,12 +68,12 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Pull Docker Image
-        run: docker pull ghcr.io/${{ github.repository }}:latest
+        run: docker pull ghcr.io/nyctovir/pawco2:latest
 
       - name: Scan Docker Image for CVEs
         uses: aquasecurity/trivy-action@0.30.0
         with:
-          image-ref: ghcr.io/${{ github.repository }}:latest
+          image-ref: ghcr.io/nyctovir/pawco2:latest
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           

@@ -71,7 +71,7 @@ jobs:
         run: docker pull ghcr.io/${{ github.repository }}:latest
 
       - name: Scan Docker Image for CVEs
-        uses: aquasecurity/trivy-action@main
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ghcr.io/${{ github.repository }}:latest
           severity: CRITICAL,HIGH
